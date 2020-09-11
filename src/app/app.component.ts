@@ -16,6 +16,11 @@ export class AppComponent {
       icon: 'home-outline'
     },
     {
+      title: 'S\'identifier',
+      link: '/auth',
+      icon: 'log-in-outline'
+    },
+    {
       title: 'service',
       link: '/service',
       icon: 'settings-2-outline'

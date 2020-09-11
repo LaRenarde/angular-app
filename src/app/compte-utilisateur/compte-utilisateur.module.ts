@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { CompteUtilisateurRoutingModule } from './compte-utilisateur-routing.module';
 import { NbAuthModule } from '@nebular/auth';
+import { LoginComponent } from './login/login.component';
 import {
   NbAlertModule,
   NbButtonModule,
@@ -27,8 +28,8 @@ import {
     NbAuthModule,
   ],
   declarations: [
+    LoginComponent
     // ... here goes our new components
   ],
 })
-export class CompteUtilisateurModule {
-}
+export class CompteUtilisateurModule { }

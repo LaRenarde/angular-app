@@ -4,12 +4,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ServiceComponent } from './service/service.component';
 import { ContactComponent } from './contact/contact.component';
 import { ErrorComponent } from './error/error.component';
-import { NbAuthComponent, NbLoginComponent,
-  NbRegisterComponent,
-  NbLogoutComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full'},
@@ -26,34 +21,9 @@ const routes: Routes = [
     path: 'customers', loadChildren: () => import('./customers/customers.module')
       .then(m => m.CustomersModule)
   },
-  { 
-    path: 'auth', component: NbAuthComponent,
-    children: [
-      {
-        path: '',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'login',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
-      {
-        path: 'logout',
-        component: NbLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
-    ],
+  {
+    path: 'auth', loadChildren: () => import('./compte-utilisateur/compte-utilisateur.module')
+      .then(m => m.CompteUtilisateurModule)
   },
 
   { path: '**', component: ErrorComponent}
