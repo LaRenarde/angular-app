@@ -12,7 +12,7 @@ import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
 
 @NgModule({
   declarations: [
@@ -45,13 +45,25 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
               login: {
                 // ...
                 endpoint: '/auth/login',
-                method : 'post'
+                method : 'post',
+                redirect: {
+                  success: '/users/liste',
+                  failure: null, // stay on the same page
+                },
               },
               register: {
                 // ...
                 endpoint: '/register',
-                method : 'post'
+                method : 'post',
+                redirect: {
+                  success: '/users',
+                  failure: null, // stay on the same page
+                },
               },
+              token: {
+                class: NbAuthJWTToken,
+                key: 'access_token'
+              }
         }),
       ],
       forms: {},
