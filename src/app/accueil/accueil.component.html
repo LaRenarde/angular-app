@@ -1,0 +1,14 @@
+<h2>Bienvenue sur la page d'accueil !</h2>
+
+
+
+&nbsp;
+
+<nb-card class="meteo" accent="warning">
+    <nb-card-header>
+        <button (click)='getWeather()' nbButton hero status="warning">Meteo</button>
+    </nb-card-header>
+    <nb-card-body>
+        {{display | json }}
+    </nb-card-body>
+  </nb-card>
