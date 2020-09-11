@@ -17,7 +17,7 @@ export class AppComponent {
     },
     {
       title: 'S\'identifier',
-      link: '/auth',
+      link: '/auth/login',
       icon: 'log-in-outline'
     },
     {

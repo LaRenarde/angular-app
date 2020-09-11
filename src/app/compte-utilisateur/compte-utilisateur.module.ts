@@ -10,6 +10,7 @@ import {
   NbAlertModule,
   NbButtonModule,
   NbCheckboxModule,
+  NbCardModule,
   NbInputModule
 } from '@nebular/theme';
 
@@ -24,7 +25,7 @@ import {
     NbButtonModule,
     NbCheckboxModule,
     CompteUtilisateurRoutingModule,
-
+    NbCardModule,
     NbAuthModule,
   ],
   declarations: [
