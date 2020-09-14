@@ -3,7 +3,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbInputModule, NbCardModule, NbButtonModule} from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbMenuModule,
+  NbInputModule,
+  NbCardModule,
+  NbButtonModule,
+  NbUserModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ServiceComponent } from './service/service.component';
@@ -12,7 +20,7 @@ import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken, NbUser } from '@nebular/auth';
 
 @NgModule({
   declarations: [
@@ -33,6 +41,7 @@ import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/a
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbEvaIconsModule,
+    NbUserModule,
     NbInputModule,
     NbCardModule,
     HttpClientModule,
@@ -47,7 +56,16 @@ import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/a
                 endpoint: '/auth/login',
                 method : 'post',
                 redirect: {
-                  success: '/users/liste',
+                  success: '/accueil',
+                  failure: null, // stay on the same page
+                },
+              },
+              logout: {
+                // ...
+                endpoint: '',
+                method : 'delete',
+                redirect: {
+                  success: '/auth/login',
                   failure: null, // stay on the same page
                 },
               },

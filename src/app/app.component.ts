@@ -1,24 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
-import { RouterModule } from '@angular/router';
+import { NbAuthService } from '@nebular/auth';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  display = false;
   title = 'my-admin-app';
   items: NbMenuItem[] = [
     {
       title: 'accueil',
       link: '/',
       icon: 'home-outline'
-    },
-    {
-      title: 'S\'identifier',
-      link: '/auth/login',
-      icon: 'log-in-outline'
     },
     {
       title: 'service',
@@ -67,5 +64,16 @@ export class AppComponent {
       ],
     }
    ];
+   constructor(private authService: NbAuthService) { }
 
+  ngOnInit(): void {
+    this.authService.onAuthenticationChange().subscribe(
+      (data) => {
+        this.display = data;
+        console.log(data);
+        console.log('ici');
+      },
+      (error) => console.log('je suis une erreur' + error)
+     );
+  }
 }

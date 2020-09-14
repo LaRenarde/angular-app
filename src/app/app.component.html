@@ -1,4 +1,5 @@
-<nb-layout>
+<nb-layout *ngIf ="display; else connexion">
+
   <nb-layout-header>
     <app-header></app-header>
   </nb-layout-header>
@@ -14,4 +15,11 @@
   <nb-layout-footer> 
     <app-footer></app-footer>
   </nb-layout-footer>
+  
 </nb-layout>
+
+<ng-template #connexion>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+</ng-template>
