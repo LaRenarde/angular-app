@@ -1,1 +1,9 @@
 <h2>Liste des clients</h2>
+
+<nb-card size="medium">
+    <nb-list>
+      <nb-list-item *ngFor="let item of liste">
+        {{item.id}} - {{item.name}}
+      </nb-list-item>
+    </nb-list>
+</nb-card>

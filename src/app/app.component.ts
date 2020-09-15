@@ -70,8 +70,6 @@ export class AppComponent implements OnInit{
     this.authService.onAuthenticationChange().subscribe(
       (data) => {
         this.display = data;
-        console.log(data);
-        console.log('ici');
       },
       (error) => console.log('je suis une erreur' + error)
      );

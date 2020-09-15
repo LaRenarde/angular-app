@@ -21,6 +21,7 @@ import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken, NbUser } from '@nebular/auth';
+import { TokenInterceptor, TokenInterceptorProvider } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,7 @@ import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken, NbUser } from '@n
       forms: {},
     })
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

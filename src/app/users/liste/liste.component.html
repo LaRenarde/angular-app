@@ -1,2 +1,10 @@
 <h2>Voici la liste de tous les utilisateurs</h2>
 
+<nb-card size="medium">
+    <nb-list>
+      <nb-list-item *ngFor="let item of liste">
+        {{item.id}} - {{item.cost}} - {{item.quantity}}
+      </nb-list-item>
+    </nb-list>
+</nb-card>
+
